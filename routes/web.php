@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,12 +17,16 @@ use App\Http\Controllers\CategoryController;
 //     return view('welcome');
 // });
 
+Route::resource('newsletter','NewsletterController')->middleware('auth');
 Route::resource('category','CategoryController')->middleware('auth');
 Route::resource('food','FoodController')->middleware('auth');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Auth::routes(['register'=>false]);
+// event & listener: newsletter route
+Route::get('/newsletter','NewsletterController@index');
+Route::post('/subscribe','NewsletterController@subscribe');
 
+// Auth::routes(['register'=>false]);
+Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/', 'FoodController@listFood');
 Route::get('/foods/{id}', 'FoodController@detailFood')->name('detail');

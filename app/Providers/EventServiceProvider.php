@@ -6,6 +6,12 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Event;
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
+use App\Listeners\EmailOwnerAboutSubscription;
+
+use App\Events\UserSubscribed;
+use App\Listeners\StoreUserLoginHistory;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -18,6 +24,9 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
+        UserSubscribed::class => [
+            EmailOwnerAboutSubscription::class
+        ]
     ];
 
     /**
@@ -27,7 +36,7 @@ class EventServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        // 
     }
 
     /**

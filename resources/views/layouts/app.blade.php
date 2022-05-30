@@ -8,6 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
+    <link rel="icon" href="img/icon.png" type="image/png" sizes="16x16">
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -41,10 +42,13 @@
                         <!-- Authentication Links -->
                         @if(Auth::check())
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('category.index') }}">{{ __('CATEGORY') }}</a>
+                                <a class="nav-link" href="{{ route('category.index') }}">{{ __('Category') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('food.index') }}">{{ __('FOOD') }}</a>
+                                <a class="nav-link" href="{{ route('food.index') }}">{{ __('Food') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/newsletter">Newsletter</a>
                             </li>
                         @endif
                         @guest

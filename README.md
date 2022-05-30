@@ -34,12 +34,12 @@ Tema Project: Aplikasi Website Berbasis Laravel untuk Restoran
 ## Event and Listener
 Kami menambahkan sistem newsletter yang menggunakan integrasi Mail dari Mailtrap untuk mengirimkan pesan bahwa user telah berlayanan dengan berita terbaru mengenai Masakin.
 Nama dan lokasi file atribut:
-- Event UserSubscribed: app/Events/UserSubscribed.php
-- Controller Newsletter: app/Http/Controllers/NewsletterController.php
-- Listener EmailOwnerAboutSubscription: app/Listeners/EmailOwnerAboutSubscription.php
-- Mail UserSubscribedMessage: app/Mail/UserSubscribedMessage.php
-- Table Migration - Newsletter: database/migrations/2022_05_30_093506_newsletter.php
-- Masakin Icon (Resized): public/img/icon.png
-- Full Logo Masakin: public/img/masakin.png
-- View Blade Mail>Subscribed: resources/views/mail/subscribed.blade.php
-- View Blade Newsletter>Index: resources/views/newsletter/index.blade.php
+- Event UserSubscribed: `app/Events/UserSubscribed.php`
+- Controller Newsletter: `app/Http/Controllers/NewsletterController.php`
+- Listener EmailOwnerAboutSubscription: `app/Listeners/EmailOwnerAboutSubscription.php`
+- Mail UserSubscribedMessage: `app/Mail/UserSubscribedMessage.php`
+- Table Migration - Newsletter: `database/migrations/2022_05_30_093506_newsletter.php`
+- Masakin Icon (Resized): `public/img/icon.png`
+- Full Logo Masakin: `public/img/masakin.png`
+- View Blade Mail>Subscribed: `resources/views/mail/subscribed.blade.php`
+- View Blade Newsletter>Index: `resources/views/newsletter/index.blade.php`

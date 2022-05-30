@@ -9,7 +9,7 @@ Tema Project: Aplikasi Website Berbasis Laravel untuk Restoran
 | 05111940000029 | Dewangga Dharmawan     |
 | 05111940000161 | Timotius Wirawan       |
 | 5025201076     | Raul Ilma Rajasa       |
-| 5025201163     | Muhammad Rolanov Wowor |
+| 5025201017     | Muhammad Rolanov Wowor |
 
 ## Required
 

@@ -14,14 +14,16 @@ use App\Http\Controllers\CategoryController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::resource('category','CategoryController');
-Route::resource('food','FoodController');
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Auth::routes();
+Route::resource('category','CategoryController')->middleware('auth');
+Route::resource('food','FoodController')->middleware('auth');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Auth::routes(['register'=>false]);
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', 'FoodController@listFood');
+Route::get('/foods/{id}', 'FoodController@detailFood')->name('detail');

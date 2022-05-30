@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Food;
+use App\Models\Category;
 class FoodController extends Controller
 {
     /**
@@ -13,7 +14,8 @@ class FoodController extends Controller
      */
     public function index()
     {
-        //
+        $foods = Food::latest()->paginate(1);
+        return view('food.index', compact('foods'));
     }
 
     /**
@@ -85,6 +87,19 @@ class FoodController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $food = Food::find($id);
+        $food->delete();
+        return redirect()->route('food.index')->with('message', 'Makanan berhasil dihapus');
+    }
+    public function listFood(){
+        $categories = Category::with('food')->get();
+        return view('index', compact('categories'));
+    }
+    public function food(){
+        return $this->hasOne(Food::class, 'category_id', 'id');
+    }
+    public function detailFood($id){
+        $food = Food::find($id);
+        return view('detail', compact('food'));
     }
 }

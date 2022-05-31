@@ -11,13 +11,10 @@
                 <div class="card-header">All Category</div>
                     <span class="float-right">
                         <a href="{{ route('category.create') }}">
-                            <button class="btn btn-outline-secondary">Tambah Cat</button>
+                            <button class="btn btn-outline-secondary">Tambah Kategori</button>
                         </a>
                     </span>
                 <div class="card-body">
-                    {{-- @foreach($categories as $category)
-                        <p>{{ $category->name }}</p>
-                    @endforeach --}}
                     <table class="table">
                         <thead class="table-dark">
                             <tr>
@@ -32,7 +29,7 @@
                             @foreach($categories as $key=>$category)
                             <tr>
                                 <th scope="row">{{ $key+1 }}</th>
-                                <td><img src="{{ asset('image') }}/{{ $categories->image }}" width="100"></td>
+                                {{-- <td><img src="{{ asset('image') }}/{{ $categories->image }}" width="100"></td> --}}
                                 <td>{{ $category->name }}</td>
                                 {{-- <td>{{ $categories->category->name }}</td> --}}
                                 <td><a href="{{ route('category.edit',[$category->id]) }}"><button class="btn btn-outline-success">Edit</button></a></td>
@@ -70,7 +67,7 @@
                             @endif
                         </tbody>
                     </table>
-                    {{ $categories->links() }}
+                    {{-- {{ $categories->links() }} --}}
                 </div>
             </div>
         </div>

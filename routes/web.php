@@ -25,8 +25,8 @@ Route::resource('food','FoodController')->middleware('auth');
 Route::get('/newsletter','NewsletterController@index');
 Route::post('/subscribe','NewsletterController@subscribe');
 
-// Auth::routes(['register'=>false]);
-Auth::routes();
+Auth::routes(['register'=>false]);
+// Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/', 'FoodController@listFood');
 Route::get('/foods/{id}', 'FoodController@detailFood')->name('detail');

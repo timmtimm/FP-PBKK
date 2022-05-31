@@ -11,12 +11,14 @@
                     @foreach(App\Models\Food::where('category_id', $category->id)->get() as $food)
                     <div class="col-md-3">
                         <img src="{{ asset('image') }}/{{ $food->image }}" width="200" height = "155">
+                        <p class="text-center"> {{ $food->name }}
+                            <span>{{ $food->price }}</span>
+                        </p>
                         <p class="text-center">
                             <a href="{{ route('detail', [$food->id]) }}">
                                 <button class="btn btn-outline-danger">View</button>
                             </a>
                         </p>
-                        <p class="text-center"><a href="">view</a></p>
                     </div>
                     @endforeach
                 </div>

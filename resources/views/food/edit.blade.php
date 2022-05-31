@@ -8,7 +8,7 @@
             <div class = "alert alert-success">
                 {{ Session::get('message') }}
             @endif
-            <form action="{{ route('food.store') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('food.update', [$food->id]) }}" method="post" enctype="multipart/form-data">
             @csrf
             {{ (method_field('PUT')) }}
             <div class="card">
@@ -59,7 +59,7 @@
                     </div>
                     <div class="form-group">
                         <label for="image">Image</label>
-                        <input type="text" name="image" class="form-control @error('image') is-invalid @enderror">
+                        <input type="file" name="image" class="form-control @error('image') is-invalid @enderror">
                         @error('image')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

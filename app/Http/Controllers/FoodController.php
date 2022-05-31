@@ -15,6 +15,7 @@ class FoodController extends Controller
     public function index()
     {
         $foods = Food::latest()->paginate(1);
+        // $foods = Food::latest()->get();
         return view('food.index', compact('foods'));
     }
 
@@ -43,6 +44,18 @@ class FoodController extends Controller
             'category'=>'required',
             'image'=>'required|mimes:png,jpeg,jpg'
         ]);
+        $image = $request->file('image');
+        $name = time().'.'.$image->getClientOriginalExtension();
+        $destinationPath = public_path('image');
+        $image->move($destinationPath,$name);
+        Food::create([
+            'name'=>$request->get('name'),
+            'description'=>$request->get('description'),
+            'price'=>$request->get('price'),
+            'category_id'=>$request->get('category'),
+            'image'=>$name
+        ]);
+        return redirect()->back()->with('message','Food berhasil ditambahkan');
     }
 
     /**
@@ -119,9 +132,6 @@ class FoodController extends Controller
     public function listFood(){
         $categories = Category::with('food')->get();
         return view('index', compact('categories'));
-    }
-    public function food(){
-        return $this->hasOne(Food::class, 'category_id', 'id');
     }
     public function detailFood($id){
         $food = Food::find($id);

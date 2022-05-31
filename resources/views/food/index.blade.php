@@ -9,15 +9,12 @@
             @endif
             <div class="card">
                 <div class="card-header">All Food</div>
-                    {{-- <span class="float-right">
-                        <a href="{{ route('category.create') }}">
-                            <button class="btn btn-outline-secondary">Tambah Cat</button>
-                        </a>
-                    </span> --}}
+                <span class="float-right">
+                    <a href="{{ route('food.create') }}">
+                        <button class="btn btn-outline-secondary">Tambah Makanan</button>
+                    </a>
+                </span>
                 <div class="card-body">
-                    {{-- @foreach($categories as $category)
-                        <p>{{ $category->name }}</p>
-                    @endforeach --}}
                     <table class="table">
                         <thead class="table-dark">
                             <tr>
@@ -38,7 +35,7 @@
                                 <td>{{ $food->name }}</td>
                                 <td>{{ $food->description }}</td>
                                 <td>{{ $food->price }}</td>
-                                <td>{{ $food->category_id }}</td>
+                                <td>{{ $food->category->name }}</td>
                                 <td>
                                     <a href="{{ route('food.edit',[$food->id]) }}">
                                     <button class="btn btn-outline-success">Edit</button></a>
@@ -79,6 +76,7 @@
                             @endif
                         </tbody>
                     </table>
+                    {{ $foods->links() }}
                 </div>
             </div>
         </div>

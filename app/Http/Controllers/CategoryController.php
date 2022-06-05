@@ -17,7 +17,8 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::latest()->get();
-        // Cache::put('categories', 10, 60);
+        // Cache::put('categ', $categories, 60);
+        // $categories = Cache::get('categ');
         return view('category.index',compact('categories'));
         // $foods = Food::latest()->paginate(1);
         // return view('food.index', compact('foods'));

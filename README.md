@@ -33,8 +33,11 @@ Tema Project: Aplikasi Website Berbasis Laravel untuk Restoran
 
 ## Localization and File Storage
 
-Implementasi dari localization dan file storage terletak di sistem ketika kita ingin memasukkan makanan (food) baru ke dalam database. Dalam formulir makanan baru akan dimintakan file input berupa gambar, maka nanti file gambar makanan yang dimasukkan akan dimasukkan ke dalam `public > image > time.ekstensi-gambar`.
-Nama dan lokasi file atribut:
+Implementasi dari localization terlihat pada halaman `Guest's Form` yang mana merupakan halaman yang berfungsi untuk memberikan feedback Masakin yang bisa diberikan pengguna maupun non-pengguna (pengunjung).
+Nama dan lokasi file atribut untuk localization:
+
+Sedangkan, untuk file storage terletak di sistem ketika kita ingin memasukkan makanan (food) baru ke dalam database. Dalam formulir makanan baru akan dimintakan file input berupa gambar, maka nanti file gambar makanan yang dimasukkan akan dimasukkan ke dalam `public > image > time.ekstensi-gambar`.
+Nama dan lokasi file atribut untuk file storage:
 
 -   Controller Food di fungsi store+update: `app/Http/Controllers/FoodController.php` @store @update
 -   Table Migration - Food (image): `database/migrations/2022_05_29_140628_create_food_table.php` @image

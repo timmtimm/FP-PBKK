@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use app\Models\Food;
 use App\Models\Category;
+use Illuminate\Support\Facades\Cache;
 
 class CategoryController extends Controller
 {
@@ -16,6 +17,7 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::latest()->get();
+        // Cache::put('categories', 10, 60);
         return view('category.index',compact('categories'));
         // $foods = Food::latest()->paginate(1);
         // return view('food.index', compact('foods'));

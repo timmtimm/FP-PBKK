@@ -36,6 +36,20 @@ Tema Project: Aplikasi Website Berbasis Laravel untuk Restoran
 Implementasi dari localization terlihat pada halaman `Guest's Form` yang mana merupakan halaman yang berfungsi untuk memberikan feedback Masakin yang bisa diberikan pengguna maupun non-pengguna (pengunjung).
 Nama dan lokasi file atribut untuk localization:
 
+-   Kernel.php Setup: `app\Http`
+-   FormController.php Controller: `app\Http\Controllers`
+-   LocalizationController.php Controller: `app\Http\Controllers`
+-   Localization.php Middleware: `app\Http\Middleware`
+-   Form.php Model: `app\Models`
+-   Config > app.php: `config\app.php`
+-   Migration Table untuk Form: `database\migrations\2022_06_05_151405_create_forms_table.php`
+-   Icon Bahasa Inggris: `public\img\en.png`
+-   Icon Bahasa Indonesia: `public\img\id.png`
+-   Form.php untuk bahasa Inggris: `resources\lang\en`
+-   Form.php untuk bahasa Indonesia: `resources\lang\id`
+-   View blade form: `resources\views\form.blade.php`
+-   Penambahan navbar list Guest's Form dan import jQuery di main app layout: `resources\views\layout\app.blade.php`
+
 Sedangkan, untuk file storage terletak di sistem ketika kita ingin memasukkan makanan (food) baru ke dalam database. Dalam formulir makanan baru akan dimintakan file input berupa gambar, maka nanti file gambar makanan yang dimasukkan akan dimasukkan ke dalam `public > image > time.ekstensi-gambar`.
 Nama dan lokasi file atribut untuk file storage:
 

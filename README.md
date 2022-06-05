@@ -25,7 +25,7 @@ Tema Project: Aplikasi Website Berbasis Laravel untuk Restoran
 ## Optional (min 2)
 
 -   [ ] Laravel jobs and queue
--   [ ] Laravel command and scheduling
+-   [x] Laravel command and scheduling
 -   [x] Laravel event and listener
 -   [ ] Laravel contracts and facade
 -   [ ] Laravel broadcasting

@@ -16,9 +16,12 @@ class FoodController extends Controller
      */
     public function index()
     {
+        $cache_foods = 'key-foods';
+        $foods = Cache::get($cache_foods);
+
         $foods = Food::latest()->paginate(1);
-        // Cache::put('foodies', $foods, 60);
-        // $foods = Cache::get('foodies');
+
+        Cache::put($cache_foods, $foods, 60);
 
         // $foods = Food::latest()->get();
         return view('food.index', compact('foods'));

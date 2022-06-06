@@ -237,6 +237,20 @@ Untuk laravel blade juga serupa dengan laravel view, akan tetapi lebih spesifik 
 6. Mail `resource\views\mail` yang berisikan 1 file blade subscribed yang menampilkan desain pesan ketika pengguna mendaftarkan di newsletter Masakin.
 7. Newsletter `resource\views\newsletter` yang berisikan 1 file blade index yang menampilkan bentuk desain dari formulir newsletter Masakin.
 
+## Authentication and authorization
+
+Untuk implementasi pada authentikasi, kami menggunakan package `laravel/ui` dikarenakan kami ingin menggunakan bootstrap sebagai framework css.
+
+Untuk langkah instalasinya:
+
+1. Install package `laravel/ui` dengan command `composer require laravel/ui`
+2. Jalankan command `php artisan ui boostrap`
+3. Jika mengalami error saat menjalankan perintah sebelumnya, jalankan command `npm install resolve-url-loader@^5.0.0 --save-dev --legacy-peer-deps`. Lalu jalankan kembali command `php artisan ui boostrap`
+4. Jalankan command `npm install && npm run dev`
+5. Untuk instalasi authentikasi, jalankan command `php artisan ui bootstrap --auth`
+
+Setelahnya authentikasi telah siap digunakan.
+
 ## Laravel Localization and File Storage
 
 **Laravel Localization**

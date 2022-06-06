@@ -64,6 +64,7 @@ Diimplementasikan pula caching pada category dan makanan di dalam database agar 
 ## Event and Listener
 
 Kami menambahkan sistem newsletter yang menggunakan integrasi Mail dari Mailtrap untuk mengirimkan pesan bahwa user telah berlayanan dengan berita terbaru mengenai Masakin.
+
 Nama dan lokasi file atribut:
 
 -   Event UserSubscribed: `app/Events/UserSubscribed.php`
@@ -75,3 +76,7 @@ Nama dan lokasi file atribut:
 -   Full Logo Masakin: `public/img/masakin.png`
 -   View Blade Mail>Subscribed: `resources/views/mail/subscribed.blade.php`
 -   View Blade Newsletter>Index: `resources/views/newsletter/index.blade.php`
+
+## Command and scheduling
+
+Kami menambahkan command untuk menghapus table Newsletter setiap menit untuk mempercepat demo. Perintah tersebut bisa dijalankan menggunakan command `newsletter:delete`. Untuk code command bisa dilihat pada `app/console/Commands/DeleteNewsletter.php`. Untuk implementasi pada Scheduling bisa dilihat pada `app/console/Kernel.php` dimana akan menjalankan command `newsletter:delete` setiap menit.

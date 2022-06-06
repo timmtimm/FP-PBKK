@@ -56,6 +56,11 @@ Nama dan lokasi file atribut untuk file storage:
 -   Controller Food di fungsi store+update: `app/Http/Controllers/FoodController.php` @store @update
 -   Table Migration - Food (image): `database/migrations/2022_05_29_140628_create_food_table.php` @image
 
+Diimplementasikan pula caching pada category dan makanan di dalam database agar dapat mempercepat akses kategori dan makanan
+
+-   Cache Category : `app/Http/Controllers/CategoryController.php`
+-   Cache Food : `app/Http/Controllers/FoodController.php`
+
 ## Event and Listener
 
 Kami menambahkan sistem newsletter yang menggunakan integrasi Mail dari Mailtrap untuk mengirimkan pesan bahwa user telah berlayanan dengan berita terbaru mengenai Masakin.

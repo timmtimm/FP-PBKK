@@ -280,6 +280,17 @@ Nama dan lokasi file atribut untuk file storage:
 -   Controller Food di fungsi store+update: `app/Http/Controllers/FoodController.php` @store @update
 -   Table Migration - Food (image): `database/migrations/2022_05_29_140628_create_food_table.php` @image
 
+## Laravel Unit Testing and Feature Testing
+**Unit Testing** diimplemementasikan pada CategoryController dimana melakukan pengetesan untuk menyimpan data user, dan user yang ingin membuat kategori.
+Nama dan lokasi file atribut untuk unit testing: `tests\Unit\CategoryControllerTest`.
+    
+**Feature Testing** diimplementasikan pada model food untuk pengetesan untuk membuat model food, serta redirect ke halaman `/food` serta testing session/authentication. Nama dan lokasi file atribut untuk feature testing: `tests\Feature\FoodTest` .
+
+Hasil testing:
+<br>
+    ![tesresult](https://user-images.githubusercontent.com/99122278/172218924-18fff388-9b55-4dfb-b162-647523233c27.png)
+</br>
+
 ## Optional (min 2)
 
 -   [ ] Laravel jobs and queue

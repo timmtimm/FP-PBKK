@@ -237,6 +237,17 @@ Untuk laravel blade juga serupa dengan laravel view, akan tetapi lebih spesifik 
 6. Mail `resource\views\mail` yang berisikan 1 file blade subscribed yang menampilkan desain pesan ketika pengguna mendaftarkan di newsletter Masakin.
 7. Newsletter `resource\views\newsletter` yang berisikan 1 file blade index yang menampilkan bentuk desain dari formulir newsletter Masakin.
 
+## Model, Eloquent, Query
+
+Model yang digunakan dalam aplikasi ini adalah Category, Food, Form, dan User yang terletak di `app\Models`
+    
+`Category.php` memiliki atribut nama kategori dan akan mengembalikan ke makanan untuk menunjukan kategori makanan
+`Food.php` memiliki atribut nama makanan, deskripsi makanan, harga, jenis kategori dengan id-nya, dan gambarnya. Ini akan dikembalikan ke Category berdasarkan kategori
+`Form.php` memiliki atribut nama, alamat, umur, email, dan pesan
+`User.php` akan mengatur atribut mana yang muncul dan mana yang tidak
+    
+Hubungan antara Food dan Category adalah many to one, dengan satu kategori bisa berisi berbagai makanan
+ 
 ## Authentication and authorization
 
 Untuk implementasi pada authentikasi, kami menggunakan package `laravel/ui` dikarenakan kami ingin menggunakan bootstrap sebagai framework css.
@@ -279,6 +290,44 @@ Nama dan lokasi file atribut untuk file storage:
 
 -   Controller Food di fungsi store+update: `app/Http/Controllers/FoodController.php` @store @update
 -   Table Migration - Food (image): `database/migrations/2022_05_29_140628_create_food_table.php` @image
+    
+## Laravel Session dan Caching
+    
+Cache diimplementasikan di file `/app/Http/Controllers/CategoryController.php` dan `/app/Http/Controllers/FoodController.php` untuk mempercepat pengambilan data sewaktu-waktu dibuka kembali
+    
+`/app/Http/Controllers/CategoryController.php`
+    
+````
+     public function index()
+    {
+        $cache_categ = 'key-category';
+        $categories = Cache::get($cache_categ);
+
+        $categories = Category::latest()->get();
+
+        Cache::put($cache_categ, $categories, 60);
+
+        return view('category.index',compact('categories'));
+        // $foods = Food::latest()->paginate(1);
+        // return view('food.index', compact('foods'));
+    }
+````
+`/app/Http/Controllers/FoodController.php`
+    
+````
+     public function index()
+    {
+        $cache_foods = 'key-foods';
+        $foods = Cache::get($cache_foods);
+
+        $foods = Food::latest()->paginate(1);
+
+        Cache::put($cache_foods, $foods, 60);
+
+        // $foods = Food::latest()->get();
+        return view('food.index', compact('foods'));
+    }
+````
 
 ## Laravel Unit Testing and Feature Testing
 **Unit Testing** diimplemementasikan pada CategoryController dimana melakukan pengetesan untuk menyimpan data user, dan user yang ingin membuat kategori.
